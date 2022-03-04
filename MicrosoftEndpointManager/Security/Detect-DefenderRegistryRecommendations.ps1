@@ -54,7 +54,7 @@ function Compare-RegistryKey {
             $Property = Get-ItemProperty -Path $instance.Path -Name $instance.Name -ErrorAction Stop | Select-Object -ExpandProperty $instance.Name
             # Check expected value
             if ($Property) {
-                if ($Property.Value -eq $instance.Value) {
+                if ($Property -eq $instance.Value) {
                     Write-Host -Object "$($instance.Path) with target property $($instance.Name): Compliant" -ForegroundColor Green                
                 } else {
                     Write-Host -Object "$($instance.Path) with target property $($instance.Name): Not compliant" -ForegroundColor Red                
