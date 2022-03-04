@@ -57,7 +57,7 @@ function Compare-RegistryKey {
             }
             
             # Check if the registry property exists
-            $Property = Get-ItemProperty -Path $instance.Path -Name $instance.Name -ErrorAction Ignore | Select-Object -ExpandProperty $instance.Name
+            $Property = Get-ItemProperty -Path $instance.Path -Name $instance.Name -ErrorAction Stop | Select-Object -ExpandProperty $instance.Name
             # Check expected value
             if ($Property) {
                 if ($Property.Value -eq $instance.Value) {
@@ -105,7 +105,7 @@ finally {
     if ($errorOccurred) {
         Write-Warning -Message $errorOccurred
         Stop-Transcript
-        # throw $errorOccurred
+        throw $errorOccurred
     }
     else {
         Write-Host -Object "Script completed successfully"
