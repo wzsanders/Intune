@@ -20,12 +20,6 @@ $hklmKeys = @(
         Name  = "RunAsPPL"
         Type  = "DWord"
         Value = 1
-    },
-    [PSCustomObject]@{
-        Path  = "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa"
-        Name  = "SecureBoot"
-        Type  = "DWord"
-        Value = 1
     }
 )
 #endregion
