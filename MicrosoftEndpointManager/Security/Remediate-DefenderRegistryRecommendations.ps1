@@ -84,7 +84,7 @@ try {
 
     Write-Host -Object "Setting HKLM registry keys" -ForegroundColor Green
     foreach ($key in $hklmKeys) {
-        Set-RegistryKey -RegistryInstance $key -WhatIf
+        Set-RegistryKey -RegistryInstance $key
     }
 }
 catch {
