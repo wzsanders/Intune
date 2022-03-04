@@ -20,6 +20,12 @@ $hklmKeys = @(
         Name  = "RunAsPPL"
         Type  = "DWord"
         Value = 1
+    },
+    [PSCustomObject]@{
+        Path  = "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa"
+        Name  = "SecureBoot"
+        Type  = "DWord"
+        Value = 1
     }
 )
 #endregion
@@ -51,13 +57,18 @@ function Compare-RegistryKey {
             }
             
             # Check if the registry property exists
-            $Property = Get-ItemProperty -Path $instance.Path -Name $instance.Name -ErrorAction Stop | Select-Object -ExpandProperty $instance.Name
+            $Property = Get-ItemProperty -Path $instance.Path -Name $instance.Name -ErrorAction Ignore | Select-Object -ExpandProperty $instance.Name
             # Check expected value
-            if ($Property -and $Property -eq $instance.Value) {
-                Write-Host -Object "$($instance.Path) with target property $($instance.Name): Compliant" -ForegroundColor Green                
+            if ($Property) {
+                if ($Property.Value -eq $instance.Value) {
+                    Write-Host -Object "$($instance.Path) with target property $($instance.Name): Compliant" -ForegroundColor Green                
+                } else {
+                    Write-Host -Object "$($instance.Path) with target property $($instance.Name): Not compliant" -ForegroundColor Red                
+                    throw "Key value does not match expected value"
+                }
             } else {
-                Write-Host -Object "$($instance.Path) with target property $($instance.Name): Not compliant" -ForegroundColor Red                
-                throw "Key value does not match expected value"
+                Write-Host -Object "$($instance.Path) with target property $($instance.Name): Not compliant" -ForegroundColor Red
+                throw "Key property does not exist"
             }
         }
     }
@@ -94,7 +105,7 @@ finally {
     if ($errorOccurred) {
         Write-Warning -Message $errorOccurred
         Stop-Transcript
-        throw $errorOccurred
+        # throw $errorOccurred
     }
     else {
         Write-Host -Object "Script completed successfully"
