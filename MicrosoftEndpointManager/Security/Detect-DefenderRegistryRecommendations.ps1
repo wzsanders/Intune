@@ -1,5 +1,5 @@
 #region Config
-$AppName = "Defender-Registry-Recommendations"
+$AppName = "Detect-Defender-Registry-Recommendations"
 $client = "William Sanders"
 $logPath = "$env:ProgramData\$client\logs"
 $logFile = "$logPath\$AppName.log"
