@@ -1,0 +1,57 @@
+/*
+@TargetNode='localhost'
+@GeneratedBy=WilliamSanders
+@GenerationDate=03/05/2022 00:52:56
+@GenerationHost=CARACAL
+*/
+
+instance of MSFT_RegistryResource as $MSFT_RegistryResource1ref
+{
+ModuleVersion = "2.12.0.0";
+ ResourceID = "[Registry]Block outdated ActiveX controls for Internet Explorer";
+ ModuleName = "PSDscResources";
+ ValueName = "VersionCheckEnabled";
+ SourceInfo = "C:\\Users\\wzsan\\AppData\\Local\\Temp\\040651e9-615e-48df-8987-d83f453e229d\\Microsoft365\\AzurePolicy\\GuestConfiguration\\Security\\DefenderRegistryResource_InternetExplorer.ps1::27::9::Registry";
+ Ensure = "Present";
+ Force = True;
+ ValueType = "DWord";
+ ValueData = {
+    "1"
+};
+ Key = "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Ext";
+ ConfigurationName = "DefenderRegistryResource_InternetExplorer";
+};
+instance of MSFT_RegistryResource as $MSFT_RegistryResource2ref
+{
+ModuleVersion = "2.12.0.0";
+ ResourceID = "[Registry]Disable running or installing downloaded software with invalid signature";
+ ModuleName = "PSDscResources";
+ ValueName = "RunInvalidSignatures";
+ SourceInfo = "C:\\Users\\wzsan\\AppData\\Local\\Temp\\040651e9-615e-48df-8987-d83f453e229d\\Microsoft365\\AzurePolicy\\GuestConfiguration\\Security\\DefenderRegistryResource_InternetExplorer.ps1::36::9::Registry";
+ Ensure = "Present";
+ Force = True;
+ ValueType = "DWord";
+ ValueData = {
+    "0"
+};
+ Key = "HKLM:\\SOFTWARE\\Policies\\Microsoft\\Internet Explorer\\Download";
+ ConfigurationName = "DefenderRegistryResource_InternetExplorer";
+};
+instance of OMI_ConfigurationDocument
+
+                    {
+ Version="2.0.0";
+
+                        MinimumCompatibleVersion = "1.0.0";
+
+                        CompatibleVersionAdditionalProperties= {"Omi_BaseResource:ConfigurationName"};
+
+                        Author="WilliamSanders";
+
+                        GenerationDate="03/05/2022 00:52:56";
+
+                        GenerationHost="CARACAL";
+
+                        Name="DefenderRegistryResource_InternetExplorer";
+
+                    };
