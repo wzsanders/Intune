@@ -30,7 +30,18 @@ New-GuestConfigurationPackage `
   -Force
 ```
 
-## Extending guest configuration with thrid-party tools
+```powershell
+$ConfigName = 'DefenderRegistryResource_InternetExplorer'
+$ResourceGroupName = 'IT.Global-Management-GuestConfiguration-PROD-EUS1'
+$StorageAccountName = 'guestconfigstorprodeus1'
+$PolicyId = '8b214283-0faf-421a-929c-c7665d28fc8f'
+$DisplayName = 'Audit Application (Internet Explorer)'
+$Description = 'Defender for Endpoint recommendations for Application (Internet Explorer)'
+
+New-GuestConfigurationPackage -Name $ConfigName -Configuration .\$ConfigName\localhost.mof -Path .\package -Type AuditAndSet -Force | Publish-GuestConfigurationPackage -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName -Force | New-GuestConfigurationPolicy -PolicyId $PolicyId -DisplayName $DisplayName -Description $Description -Path '.\policies' -Platform Windows -Version 1.0.1 -Mode ApplyAndAutoCorrect | Publish-GuestConfigurationPolicy
+```
+
+## Extending guest configuration with third-party tools
 
 The DSC resource requires custom development if a community solution doesn't already exist. Community solutions can be discovered by searching the PowerShell Gallery for tag [GuestConfiguration](https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22).
 
