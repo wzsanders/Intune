@@ -1,9 +1,15 @@
 # Guest Configuration
+https://docs.microsoft.com/en-us/azure/governance/policy/concepts/guest-configuration-assignments
+
 https://docs.microsoft.com/en-us/azure/governance/policy/how-to/guest-configuration-create-setup
 
 https://docs.microsoft.com/en-us/azure/governance/policy/samples/built-in-packages
 
 https://docs.microsoft.com/en-us/powershell/dsc/overview?view=dsc-1.1
+
+https://github.com/dsccommunity/SecurityPolicyDsc
+
+https://docs.microsoft.com/en-us/azure/governance/policy/how-to/guest-configuration-create-definition
 ## Create a configuration package artifact
 
 ```powershell
