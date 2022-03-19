@@ -20,6 +20,12 @@ $hklmKeys = @(
         Name  = "RunAsPPL"
         Type  = "DWord"
         Value = 1
+    },
+    [PSCustomObject]@{
+        Path  = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
+        Name  = "MaxDevicePasswordFailedAttempts"
+        Type  = "DWord"
+        Value = 10
     }
 )
 #endregion
