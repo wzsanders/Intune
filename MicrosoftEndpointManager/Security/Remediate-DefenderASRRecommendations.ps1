@@ -1,5 +1,5 @@
 #region Config
-$AppName = "Detect-Defender-ASR-Recommendations"
+$AppName = "Remediate-Defender-ASR-Recommendations"
 $client = "William Sanders"
 $logPath = "$env:ProgramData\$client\logs"
 $logFile = "$logPath\$AppName.log"
