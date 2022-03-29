@@ -55,7 +55,7 @@ try {
         if ($currentAsrState[$rule.Id] -eq $rule.Action) {
             Write-Host -Object "Rule '$($rule.Name)' is already in the desired state" -ForegroundColor Green
         } else {
-            Write-Host -Object "Rule '$($rule.Name)' is not in the desired state. Rule requires '$($rule.Action)'" -ForegroundColor Yellow
+            Write-Host -Object "Rule '$($rule.Name)' is not in the desired state. Setting rule action to '$($rule.Action)'" -ForegroundColor Yellow
             Set-MpPreference -AttackSurfaceReductionRules_Ids $rule.Id -AttackSurfaceReductionRules_Actions $rule.Action
         }
     }
