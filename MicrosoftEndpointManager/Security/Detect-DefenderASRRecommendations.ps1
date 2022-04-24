@@ -4,11 +4,13 @@ $client = "William Sanders"
 $logPath = "$env:ProgramData\$client\logs"
 $logFile = "$logPath\$AppName.log"
 #region GUIDs
+# 0 = Disable, 1 = Block, 2 = Audit, 6 = Warn
+# Warn is available for most ASR rules.
 $asrRules = @(
     [PSCustomObject]@{
         Id     = "56a863a9-875e-4185-98a7-b882c64b5ce5"
         Name   = "Block abuse of exploited vulnerable signed drivers"
-        Action = "Enabled"
+        Action = 1
     }
 )
 #endregion
