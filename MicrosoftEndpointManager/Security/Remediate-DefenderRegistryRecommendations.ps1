@@ -22,6 +22,12 @@ $hklmKeys = @(
         Value = 1
     },
     [PSCustomObject]@{
+        Path  = "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa"
+        Name  = "DisableDomainCreds"
+        Type  = "DWord"
+        Value = 1
+    },
+    [PSCustomObject]@{
         Path  = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
         Name  = "MaxDevicePasswordFailedAttempts"
         Type  = "DWord"
