@@ -2,6 +2,7 @@ Configuration AzureSecurityBenchmark_Configuration
 {
     Import-DscResource -ModuleName 'PSDscResources'
     Import-DscResource -ModuleName 'SecurityPolicyDsc'
+    Import-DscResource -ModuleName 'AuditPolicyDsc'
 
     Node localhost
     {
@@ -94,10 +95,17 @@ Configuration AzureSecurityBenchmark_Configuration
             Force    = $true
         }
 
-        # SecurityOption "CCE-37741-6: Ensure 'Audit Credential Validation' is set to 'Success and Failure'" {
-        #     Name = 'Audit_Credential_Validation'
-        #     Audit_Credential_Validation = 'Success and Failure'
-        # }
+        AuditPolicyGUID "CCE-37741-6: Ensure 'Audit Credential Validation' is set to 'Success'" {
+            Name      = 'Credential Validation'
+            AuditFlag = 'Success'
+            Ensure    = 'Present'
+        }
+
+        AuditPolicyGUID "CCE-37741-6: Ensure 'Audit Credential Validation' is set to 'Failure'" {
+            Name      = 'Credential Validation'
+            AuditFlag = 'Failure'
+            Ensure    = 'Present'
+        }
     }
 }
 
