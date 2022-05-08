@@ -12,7 +12,7 @@ $hkcuKeys = @()
 #         Type  = "DWord"
 #         Value = 1
 #         Path  = "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa"
-#     }f
+#     }
 # )
 $hklmKeys = @(
     [PSCustomObject]@{
