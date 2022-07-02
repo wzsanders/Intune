@@ -20,4 +20,8 @@ if (Test-Path -Path $TailscaleUserDataPath) {
     Remove-Item -Path $TailscaleUserDataPath -Recurse -Force -ErrorAction SilentlyContinue
 }
 
+if (Test-Path -Path 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Tailscale.lnk') {
+    Remove-Item -Path 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Tailscale.lnk' -Recurse -ErrorAction SilentlyContinue
+}
+
 sc.exe delete tailscale
