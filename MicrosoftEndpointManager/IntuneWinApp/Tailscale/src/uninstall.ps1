@@ -1,3 +1,5 @@
+Stop-Service -Name Tailscale -ErrorAction SilentlyContinue
+
 choco uninstall tailscale -y
 
 $TailscalePath = "$env:ProgramFiles\Tailscale IPN"
