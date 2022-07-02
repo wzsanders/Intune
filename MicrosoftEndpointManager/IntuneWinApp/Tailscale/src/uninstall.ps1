@@ -14,7 +14,7 @@ if (Test-Path -Path $TailscaleProgramDataPath) {
     Remove-Item -Path $TailscaleProgramDataPath -Recurse -Force -ErrorAction SilentlyContinue
 }
 
-$TailscaleUserDataPath = (Get-ChildItem -Path 'C:\Users\*\AppData\Local' -Filter 'Tailscale' -ErrorAction SilentlyContinue).FullName
+$TailscaleUserDataPath = (Get-ChildItem -Path "C:\Users\*\AppData\Local\*" -Filter 'Tailscale' -ErrorAction SilentlyContinue).FullName
 
 if (Test-Path -Path $TailscaleUserDataPath) {
     Remove-Item -Path $TailscaleUserDataPath -Recurse -Force -ErrorAction SilentlyContinue
